@@ -7,6 +7,8 @@ const CHECK_LOGIN_URL = `${config.host}/checkLogin.nami`;//校验是否登录
 
 /**
  * 校验登录
+ * @param success 校验成功的回调
+ * @param fail 校验失败的回调
  */
 var checkLogin = (success, fail) => {
     var namiToken = wx.getStorageSync(constant.NAMI_TOKEN);
@@ -38,11 +40,14 @@ var checkLogin = (success, fail) => {
 
 /**
  * 登录
+ * @param success 登录成功的回调
+ * @param fail 登录失败的回调
  */
 var login = (success, fail) => {
     checkLogin(() => {
         //DO NOTHING
         console.log("已登录");
+        typeof success == "function" && success();
     }, () => {
         remoteLogin(success, fail)
     });
@@ -50,6 +55,8 @@ var login = (success, fail) => {
 
 /**
  * 服务端请求登录
+ * @param success 服务端请求登录成功的回调
+ * @param fail 服务端请求登录失败的回调
  */
 var remoteLogin = (success, fail) => {
     //调用登录接口
@@ -76,10 +83,7 @@ var remoteLogin = (success, fail) => {
                         }
                     } else {//成功
                         console.log("登录成功", res);
-                        wx.setStorage({
-                            key: constant.NAMI_TOKEN,
-                            data: res.data.key
-                        })
+                        wx.setStorageSync(constant.NAMI_TOKEN, res.data.key);
                         typeof success == "function" && success();
                     }
                 }
@@ -88,6 +92,11 @@ var remoteLogin = (success, fail) => {
     })
 }
 
+/**
+ * 获取用户授权信息
+ * @param success 获取成功的回调
+ * @param fail 获取失败的回调
+ */
 var getUserInfo = (success, fail) => {
     wx.getUserInfo({
         success: function (res) {
@@ -115,6 +124,5 @@ var getUserInfo = (success, fail) => {
 
 module.exports = {
     login: login,
-    checkLogin: checkLogin,
     getUserInfo: getUserInfo
 }
