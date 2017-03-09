@@ -80,21 +80,21 @@ nami.request({
 
 ### promise在开发中的应用，可参考该demo：
 > 实际开发中会遇到这种情况，如果先用nami.login()实现登录以获取NAMI_TOKEN;再通过nami.getUserInfo()获取用户数据，在调试工具中发现namiToken为空(异步请求导致的错误，还没有获取NAMI_TOKEN，就发送getUserInfo请求)，返回报错，如图：
-![异步请求错误](https://github.com/wodenwang/nami-client/images/asyncError.png)
+![异步请求错误](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/asyncError.png)
 
 <br />
 
 ** 看看用promise怎么处理这类问题 **
 
 1. 核心代码，如图
-![promiseCode](https://github.com/wodenwang/nami-client/images/promiseCode.png)
+![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/promiseCode.png)
 
 2. 看看数据请求：
 * 登录请求
-![promiseCode](https://github.com/wodenwang/nami-client/images/step1.png)
+![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step1.png)
 
 * 获取用户数据
-![promiseCode](https://github.com/wodenwang/nami-client/images/step2.png)
+![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step2.png)
 
 * 网络请求
-![promiseCode](https://github.com/wodenwang/nami-client/images/step3.png)
+![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step3.png)
