@@ -73,7 +73,7 @@ var remoteLogin = (success, fail) => {
                         console.error("登陆失败", res);
                         var data = res.data || { msg: '无法请求服务器' };
                         if (typeof fail == "function") {
-                            fail();
+                            fail(res);
                         } else {
                             wx.showModal({
                                 title: '提示',
@@ -84,7 +84,7 @@ var remoteLogin = (success, fail) => {
                     } else {//成功
                         console.log("登录成功", res);
                         wx.setStorageSync(constant.NAMI_TOKEN, res.data.key);
-                        typeof success == "function" && success();
+                        typeof success == "function" && success(res);
                     }
                 }
             })
