@@ -4,15 +4,15 @@
 
 ## How to use?
 
-### 引用nami文件
+### 1.引用nami文件
 
 ```javascript
 var nami = require("./nami/index"); 
 ```
 
-### 修改/nami/config.js中的host地址,修改为NAMI服务端地址
+### 2.修改/nami/config.js中的host地址,修改为NAMI服务端地址
 
-### 登录请求
+### 3.登录请求
 ```javascript
 nami.login(() => {
     // success callback
@@ -21,7 +21,7 @@ nami.login(() => {
 });
 ```
 
-### 获取用户信息请求
+### 4.获取用户信息请求
 ```javascript
 nami.getUserInfo(res => {
     // success callback
@@ -30,7 +30,7 @@ nami.getUserInfo(res => {
 });
 ```
 
-### 网络请求
+### 5.网络请求
 ```javascript
 nami.request({
     url:"", // 请求地址
@@ -45,9 +45,9 @@ nami.request({
 });
 ```
 
-### **nami支持promise异步请求**，封装原有的login(),getUserInfo(),request()请求，我们可以通过链式操作处理回调
+### 6.**nami支持promise异步请求**，封装原有的login(),getUserInfo(),request()请求，我们可以通过链式操作处理回调
 
-1. 登录请求
+- 登录请求
 ```javascript
 nami.promise.login().then(() => {
     // success callback
@@ -56,7 +56,7 @@ nami.promise.login().then(() => {
 });
 ```
 
-2. 获取用户信息请求
+- 获取用户信息请求
 ```javascript
 nami.promise.getUserInfo().then(res => {
     // success callback
@@ -65,7 +65,7 @@ nami.promise.getUserInfo().then(res => {
 });
 ```
 
-3. 网络请求
+- 网络请求
 ```javascript
 nami.request({
     url:"", // 请求地址
@@ -84,17 +84,19 @@ nami.request({
 
 <br />
 
-** 看看用promise怎么处理这类问题 **
+### ** 看看用promise怎么处理这类问题 **
 
-1. 核心代码，如图
+- 核心代码，如图
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/promiseCode.png)
 
-2. 看看数据请求：
-* 登录请求
+- 看看数据请求：
+
+1.登录请求
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step1.png)
 
-* 获取用户数据
+2.获取用户数据
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step2.png)
 
-* 网络请求
+3.网络请求
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step3.png)
+
