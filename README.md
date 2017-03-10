@@ -97,10 +97,5 @@ nami.request({
 2.获取用户数据
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step2.png)
 
-<<<<<<< HEAD
-3.网络请求00
-=======
 3.网络请求
->>>>>>> 1a2f76bf255107bed79fcba2b5ccb6edbbef9bb0
 ![promiseCode](https://raw.githubusercontent.com/wodenwang/nami-client/master/images/step3.png)
-
