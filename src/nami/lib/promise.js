@@ -1,6 +1,6 @@
 var login = require('./login')
 var http = require('./http')
-var Promise = require('../thirthlib/promise')
+var Promise = require('../thirdlib/promise')
 
 var _login = () => {
     return new Promise(function (resolve, reject) {
